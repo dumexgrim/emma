@@ -1,0 +1,57 @@
+/*Author: Emmanuel Dumé 
+ * Programs: Elementary Sort
+ * Subject: Shellsort. 
+ * City: Indianapolis 
+ * Country: United of America. 
+ * Year: 2019-2020.
+ */
+using System;
+namespace SortedProject
+{
+    public class ShellSort
+    {
+        private int[] array; 
+
+        public ShellSort(int[] arr)
+        {
+            this.array = arr;
+
+            int number = array.Length;
+            int h = 1;
+            while (h >= 1)
+            {
+                for (int counter = h; counter < number; counter++)
+                {
+                    for (int count = counter; count >= h
+                    && Less(ref array[count], ref array[count - h]); count -= h)
+                    {
+                        Swap(ref array[count], ref array[count - h]);
+                    }
+                }
+                h = h / 3;
+            }
+        }
+
+        public void PrintShellSort()
+        {
+            Console.WriteLine($"{"ID"} {"VALUE"}");
+            int number = array.Length;
+            for (int counter = 0; counter < number; counter++)
+            {
+                Console.WriteLine($"{counter,2}{array[counter],6}");
+            }
+        }
+
+        private bool Less(ref int x, ref int y)
+        {
+            return x.CompareTo(y) < 0; 
+        }
+
+        private void Swap(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;  
+        }
+    }
+}
