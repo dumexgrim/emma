@@ -1,0 +1,56 @@
+/*Author: Emmanuel Dumé 
+ * Programs: Elementary Sort
+ * Subject: Selection short. 
+ * City: Indianapolis 
+ * Country: United of America. 
+ * Year: 2019-2020.
+ * code of reference: University of Princeton. 
+ */
+using System;
+namespace SortedProject
+{
+    public class SelectionSort
+    {
+        private int[] array; 
+
+        public SelectionSort(int[] array)
+        {
+            this.array = array;
+            int number = array.Length;
+            for (int counter = 0; counter < number; counter++)
+            {
+                int miniElement = counter;
+                for (int count = counter + 1; count < number; count++)
+                {
+                    if (less(ref array[count], ref array[miniElement]))
+                    {
+                        miniElement = count; 
+                    }
+                }
+                swap(ref array[miniElement], ref array[counter]); 
+            }
+        }
+
+        public void PrintSelectionSort()
+        {
+            Console.WriteLine($"{"ID"} {"VALUE"}"); 
+            int number = array.Length;
+            for (int counter = 0; counter < number; counter++)
+            {
+                Console.WriteLine($"{counter,2}{array[counter],6}"); 
+            }
+        }
+
+        private bool less(ref int x, ref int y)
+        {
+            return x.CompareTo(y) < 0; 
+        }
+
+        private void swap(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp; 
+        }
+    }
+}
