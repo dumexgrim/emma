@@ -1,0 +1,71 @@
+/*Author: Emmanuel Dumé 
+ * Programs: Elementary Sort
+ * Subject: Insertion sort. 
+ * City: Indianapolis 
+ * Country: United of America. 
+ * Year: 2019-2020.
+ */
+using System;
+namespace SortedProject
+{
+    public class InsertionSort
+    {
+        private int[] array; 
+
+        public InsertionSort(int[] array)
+        {
+            this.array = array;
+            int number = array.Length;
+
+            for (int counter = 0; counter < number -1; counter++)
+            {
+                for (int count = counter + 1; count > 0; count--)
+                {
+                    if (less(ref array[count], ref array[count - 1]))
+                    {
+                        swap(ref array[count], ref array[count - 1]); 
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+            }
+        }
+
+        public void PrintInsertionSort()
+        {
+            int number = array.Length; 
+
+            Console.WriteLine($"{"ID"}{"VALUE", 8}");
+
+            for (int counter = 0; counter < number; counter++)
+            {
+                Console.WriteLine($"{counter,2}{array[counter],6}"); 
+            }
+
+        }
+
+        private bool less(ref int x, ref int y)
+        {
+            return x.CompareTo(y) < 0; 
+        }
+
+        private void swap( ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp; 
+        }
+    }
+    
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int[] array = { 70, 99, 20, 1, 3, 90, 100, 234, 5, 22, 100, 204, 345 };
+            var objectSelectionsort = new SelectionSort(array);
+            objectSelectionsort.PrintSelectionSort();  
+        }
+    }
+}
