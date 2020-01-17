@@ -1,0 +1,74 @@
+/*Author: Emmanuel Dumé 
+ * Programs: Elementary Sort
+ * Subject: Merge sort. 
+ * City: Indianapolis 
+ * Country: United of America. 
+ * Year: 2019-2020.
+ * code of reference: University of Princeton. 
+ */
+using System;
+namespace MergeProject
+{
+    public class Merge
+    {
+        private string[] array; 
+
+        public Merge(string[] array)
+        {
+            this.array = array;
+            var aux = new string[array.Length];
+            SortMethod(array, aux, 0, array.Length - 1); 
+        }
+
+        private void SortMethod(string[] arrayA, string[] arrayB, int lo, int hi)
+        {
+            if (hi <= lo) return;
+            int mid = lo + (hi - lo) / 2;
+            SortMethod(arrayA, arrayB, lo, mid);
+            SortMethod(arrayA, arrayB, mid + 1, hi);
+            MergeMethod(arrayA, arrayB, lo, mid, hi); 
+        }
+
+        private void MergeMethod(string[] arrayA, string[] arrayB, int lo, int mid, int high)
+        {
+            for (int count = lo; count <= high; count++)
+            {
+                arrayB[count] = arrayA[count]; 
+            }
+
+            int number = lo, j = mid + 1;
+            for (int counter = lo; counter <= high; counter++)
+            {
+                if (number > mid) arrayA[counter] = arrayB[j++];
+                else if (j > high) arrayA[counter] = arrayB[number++];
+                else if (less(ref arrayB[j], ref arrayA[number])) arrayA[counter] = arrayB[j++];
+                else arrayA[counter] = arrayB[number++]; 
+            }
+        }
+
+        private bool less(ref string x, ref string y)
+        {
+            return string.Compare(x, y, StringComparison.Ordinal) < 0; 
+        }
+
+    }
+}
+
+
+using System;
+
+namespace MergeProject
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            string[] array = { "BLACK", "BLUE", "RED", "YELLOW", "PURPLE", "REDBLUE" };
+            var mysorted = new Merge(array); 
+            foreach (var item in array)
+            {
+                Console.WriteLine($"{item}"); 
+            }
+        }
+    }
+}
