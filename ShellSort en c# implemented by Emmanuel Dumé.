@@ -1,9 +1,10 @@
 /*Author: Emmanuel Dumé 
  * Programs: Elementary Sort
  * Subject: Shellsort. 
- * City: Indianapolis 
- * Country: United of America. 
- * Year: 2019-2020.
+ * City: Buenos aires  
+ * Country: Argetina. 
+ * Year: 2016-2017.
+ * Univeristy: UTN.BA
  */
 using System;
 namespace SortedProject
