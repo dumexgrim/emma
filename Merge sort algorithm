@@ -3,8 +3,7 @@
  * Subject: Merge sort. 
  * City: Indianapolis 
  * Country: United of America. 
- * Year: 2019-2020.
- * code of reference: University of Princeton. 
+ * Year: 2016-2017. 
  */
 using System;
 namespace MergeProject
