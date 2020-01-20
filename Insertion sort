@@ -1,9 +1,9 @@
-/*Author: Emmanuel Dumé 
+/*Implemented code: Emmanuel Dumé 
  * Programs: Elementary Sort
  * Subject: Insertion sort. 
  * City: Indianapolis 
- * Country: United of America. 
- * Year: 2019-2020.
+ * Country: Buenos Aires. 
+ * Year: 2016-2017.
  */
 using System;
 namespace SortedProject
